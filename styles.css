@@ -116,6 +116,16 @@ footer > .attribution {
     border-radius: 1.5rem;
     width: 100%;
 }
+.soon_content-email > .error {
+    border: 2px solid var(--primary-color-2);
+}
+.soon_content-email > .error-icon{
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    right: 100px;
+    align-self: center;
+}
 .soon_content-email > .error-email{
     color: var(--primary-color-2);
     position: absolute;
@@ -137,9 +147,6 @@ footer > .attribution {
 }
 .soon_content-email > input::placeholder{
     color: var(--primary-color-1);
-}
-.soon_content-email > input:invalid{
-    border: 1px solid var(--primary-color-2);
 }
 .soon_content-email > input:focus{
     outline: none;
@@ -165,6 +172,8 @@ footer > .attribution {
     #main{
         height: 100vh;
         background-image: url(images/bg-pattern-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
     }
     header{
         position: fixed;

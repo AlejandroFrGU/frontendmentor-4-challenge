@@ -40,6 +40,7 @@
         <form name="coming-soon-form" class="soon_content-email">
           <input id="email" for="email"  name="email" type="text" placeholder="Email Address">
           <input type="submit" value=">">
+          <img class="error-icon" src="images/icon-error.svg" alt="">
           <p class="error-email">Please provide a valid email</p>
           <p class="valid-email">Email send!</p>
         </form>
@@ -56,14 +57,18 @@
       const form = document.querySelector(".soon_content-email");
       form.addEventListener("submit", function (event) {
           event.preventDefault();
+          document.querySelector(".valid-email").classList.remove("show");
           let x = document.forms["coming-soon-form"]["email"].value;
           if( x == ' '  || !x.includes("@")){
             document.querySelector(".error-email").classList.add("show");
+            document.querySelector(".error-icon").classList.add("show");
+            document.querySelector(".error-icon").classList.add("show");
+            document.getElementById("email").classList.add("error");
           }else{
-            if(document.querySelector(".error-email").classList.contains("show")){
               document.querySelector(".error-email").classList.remove("show");
+              document.querySelector(".error-icon").classList.remove("show");
+              document.getElementById("email").classList.remove("error");
               document.querySelector(".valid-email").classList.add("show");
-            };
           }
      });
     </script>
