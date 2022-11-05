@@ -173,7 +173,7 @@ footer > .attribution {
         height: 100vh;
         background-image: url(images/bg-pattern-desktop.svg);
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size:80% 100%;
     }
     header{
         position: fixed;
