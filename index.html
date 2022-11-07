@@ -17,7 +17,7 @@
 <body>
   <header id="header">
     <figure id="logo">
-      <a href="https://alejandrofrgu.github.io/frontendmentor-4-challenge/" id="logo-nav">
+      <a href="./" id="logo-nav">
         <img src="images/logo.svg" alt="">
       </a>
     </figure>
@@ -30,15 +30,15 @@
       </picture>
       <div class="soon_content">
         <h1 class="soon_content-title">
-          <p class="soon_content-title-special">We're</p>
-          <p class="soon_content-title-coming">coming soon</p>
+          <span class="soon_content-title-special">We're</span>
+          <span class="soon_content-title-coming">coming soon</span>
         </h1>
         <p class="soon_content-description">
           Hello fellow shoppers! We're currently building our new fashion store. 
           Add your email below to stay up-to-date with announcements and our launch deals.
         </p>
         <form name="coming-soon-form" class="soon_content-email">
-          <input id="email" for="email"  name="email" type="text" placeholder="Email Address">
+          <input id="email" aria-label="email" name="email" type="email" placeholder="Email Address">
           <input type="submit" value=">">
           <img class="error-icon" src="images/icon-error.svg" alt="">
           <p class="error-email">Please provide a valid email</p>
@@ -50,25 +50,29 @@
   <footer>
     <p class="attribution">
       Challenge by Frontend Mentor. 
-      Coded by <a target="_blank" href="https://github.com/AlejandroFrGU">Alejandro F<!-- 👻 --></a>
+      Coded by <a target="_blank" rel="noopener" href="https://github.com/AlejandroFrGU">Alejandro F<!-- 👻 --></a>
     </p>
   </footer>
   <script>
       const form = document.querySelector(".soon_content-email");
+      var email = document.getElementById("email") ;
+      var valid_email = document.querySelector(".valid-email");
+      var error_email = document.querySelector(".error-email");
+      var error_icon = document.querySelector(".error-icon");
       form.addEventListener("submit", function (event) {
           event.preventDefault();
-          document.querySelector(".valid-email").classList.remove("show");
-          let x = document.forms["coming-soon-form"]["email"].value;
-          if( x == ' '  || !x.includes("@")){
-            document.querySelector(".error-email").classList.add("show");
-            document.querySelector(".error-icon").classList.add("show");
-            document.querySelector(".error-icon").classList.add("show");
-            document.getElementById("email").classList.add("error");
+          valid_email.classList.remove("show");
+          let email_value = document.forms["coming-soon-form"]["email"].value;
+          if( email_value == ' '  || !email_value.includes("@")){
+            error_email.classList.add("show");
+            error_icon.classList.add("show");
+            error_icon.classList.add("show");
+            email.classList.add("error");
           }else{
-              document.querySelector(".error-email").classList.remove("show");
-              document.querySelector(".error-icon").classList.remove("show");
-              document.getElementById("email").classList.remove("error");
-              document.querySelector(".valid-email").classList.add("show");
+              error_email.classList.remove("show");
+              error_icon.classList.remove("show");
+              email.classList.remove("error");
+              valid_email.classList.add("show");
           }
      });
     </script>
